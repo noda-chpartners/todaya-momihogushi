@@ -1,0 +1,50 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { site } from '../data/site';
+---
+
+<section class="info section section--dark" id="info" aria-labelledby="info-title">
+  <div class="container info__grid">
+    <div class="info__heading">
+      <SectionHeading eyebrow="INFORMATION" id="info-title" light>
+        店舗情報
+      </SectionHeading>
+      <figure class="info__photo js-reveal">
+        <img class="info__image media" src="/images/hero01.png" alt="竹と白砂でしつらえた店内" width="750" height="562" loading="lazy" />
+      </figure>
+    </div>
+    <dl class="info__list js-reveal">
+      <div class="info-row">
+        <dt class="info-row__label">店名</dt>
+        <dd class="info-row__value">{site.name}</dd>
+      </div>
+      <div class="info-row">
+        <dt class="info-row__label">住所</dt>
+        <dd class="info-row__value">〒{site.postalCode}<br class="info-row__break" />{site.address}</dd>
+      </div>
+      <div class="info-row">
+        <dt class="info-row__label">最寄駅</dt>
+        <dd class="info-row__value">{site.station}</dd>
+      </div>
+      <div class="info-row">
+        <dt class="info-row__label">営業時間</dt>
+        <dd class="info-row__value">
+          <span class="info-row__subline">平日　{site.weekdayHours}</span>
+          <span class="info-row__subline">土日祝　{site.holidayHours}</span>
+        </dd>
+      </div>
+      <div class="info-row">
+        <dt class="info-row__label">定休日</dt>
+        <dd class="info-row__value">{site.closed}</dd>
+      </div>
+      <div class="info-row">
+        <dt class="info-row__label">席数</dt>
+        <dd class="info-row__value">{site.seats}</dd>
+      </div>
+      <div class="info-row">
+        <dt class="info-row__label">電話番号</dt>
+        <dd class="info-row__value"><a class="info-row__link" href={site.phoneHref}>{site.phoneDisplay}</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>

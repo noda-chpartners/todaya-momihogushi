@@ -1,0 +1,32 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { menuItems } from '../data/site';
+---
+
+<section class="menu section section--dark" id="menu" aria-labelledby="menu-title">
+  <div class="menu__glow" aria-hidden="true"></div>
+  <div class="container menu__layout">
+    <div class="menu__aside">
+      <SectionHeading eyebrow="TREATMENT MENU" id="menu-title" light>
+        からだに合わせて、<br class="section-heading__break" />選ぶ時間。
+      </SectionHeading>
+      <p class="menu__note js-reveal">すべてのメニューと料金をご案内します。</p>
+      <figure class="menu__photo js-reveal js-parallax">
+        <img class="menu__image media" src="/images/sejutu03.png" alt="肩への施術の様子" width="750" height="562" loading="lazy" />
+      </figure>
+    </div>
+    <ol class="menu__list">
+      {menuItems.map((item, index) => (
+        <li class="menu-row js-menu-row">
+          <span class="menu-row__index">{String(index + 1).padStart(2, '0')}</span>
+          <div class="menu-row__body">
+            <h3 class="menu-row__name">{item.name}</h3>
+            <p class="menu-row__duration">{item.duration}</p>
+          </div>
+          <p class="menu-row__price">{item.price}</p>
+          <span class="menu-row__line" aria-hidden="true"></span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

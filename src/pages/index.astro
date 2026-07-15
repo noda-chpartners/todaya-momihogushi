@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Concept from '../components/Concept.astro';
+import MenuSection from '../components/MenuSection.astro';
+import TreatmentGallery from '../components/TreatmentGallery.astro';
+import StaffSection from '../components/StaffSection.astro';
+import InfoSection from '../components/InfoSection.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '../styles/home.scss';
+---
+
+<BaseLayout
+  title="もみほぐし専門店 とだ家｜名古屋市名東区一社"
+  description="名古屋市名東区一社の、もみほぐし専門店 とだ家。メニュー、営業時間、店舗情報をご案内します。"
+>
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+  <main class="main-content">
+    <Hero />
+    <Concept />
+    <MenuSection />
+    <TreatmentGallery />
+    <StaffSection />
+    <InfoSection />
+  </main>
+  <Footer />
+  <script src="../scripts/animations.ts"></script>
+</BaseLayout>

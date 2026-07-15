@@ -1,0 +1,20 @@
+---
+import { treatmentImages } from '../data/site';
+---
+
+<section class="gallery section" aria-label="施術風景">
+  <div class="gallery__intro container js-reveal">
+    <p class="gallery__eyebrow">SCENES OF TREATMENT</p>
+    <p class="gallery__title">手から伝わる、<br class="gallery__break" />静かなリズム。</p>
+  </div>
+  <div class="gallery__viewport">
+    <div class="gallery__track js-gallery-track">
+      {treatmentImages.map((image, index) => (
+        <figure class:list={['gallery-card', { 'gallery-card--tall': index % 3 === 1 }] }>
+          <img class="gallery-card__image media" src={image.src} alt={image.alt} width="750" height="562" loading="lazy" />
+          <figcaption class="gallery-card__caption">TODAYA / {String(index + 1).padStart(2, '0')}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

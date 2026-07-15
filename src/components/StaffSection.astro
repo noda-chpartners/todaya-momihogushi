@@ -1,0 +1,24 @@
+---
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="staff section" id="staff" aria-labelledby="staff-title">
+  <div class="container staff__grid">
+    <div class="staff__portrait-wrap js-reveal">
+      <figure class="staff__portrait js-parallax">
+        <img class="staff__image media" src="/images/staff.png" alt="とだ家のスタッフ" width="768" height="1024" loading="lazy" />
+      </figure>
+      <span class="staff__stamp" aria-hidden="true">とだ家</span>
+    </div>
+    <div class="staff__content">
+      <SectionHeading eyebrow="STAFF" id="staff-title">
+        とだ家で、<br class="section-heading__break" />お待ちしています。
+      </SectionHeading>
+      <p class="staff__copy js-reveal">落ち着いた一席の空間で、みなさまをお迎えします。</p>
+      <p class="staff__signature js-reveal">もみほぐし専門店 とだ家</p>
+    </div>
+    <figure class="staff__detail js-reveal">
+      <img class="staff__detail-image media" src="/images/sejutu01.png" alt="もみほぐし施術の様子" width="750" height="562" loading="lazy" />
+    </figure>
+  </div>
+</section>

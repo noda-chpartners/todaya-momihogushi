@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow: string;
+  id?: string;
+  light?: boolean;
+}
+
+const { eyebrow, id, light = false } = Astro.props;
+---
+
+<div class:list={['section-heading', { 'section-heading--light': light }, 'js-reveal']}>
+  <p class="section-heading__eyebrow">{eyebrow}</p>
+  <h2 class="section-heading__title" id={id}>
+    <slot />
+  </h2>
+  <span class="section-heading__line js-line" aria-hidden="true"></span>
+</div>
