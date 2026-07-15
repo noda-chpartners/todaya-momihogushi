@@ -1,10 +1,58 @@
 ---
+import { getImage } from 'astro:assets';
+import { site } from '../data/site';
+import ogSource from '../assets/images/hero02.png';
+
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
+
+const siteOrigin = Astro.site ?? new URL(site.url);
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin);
+const ogImage = await getImage({ src: ogSource, width: 1200, height: 630, format: 'webp', fit: 'cover' });
+const ogImageURL = new URL(ogImage.src, siteOrigin);
+
+const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'HealthAndBeautyBusiness',
+  '@id': `${canonicalURL.origin}/#business`,
+  name: site.name,
+  alternateName: site.nameEn,
+  description,
+  url: canonicalURL.origin,
+  telephone: site.telephone,
+  image: ogImageURL.href,
+  priceRange: '¥¥',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.streetAddress,
+    addressLocality: site.addressLocality,
+    addressRegion: site.addressRegion,
+    postalCode: site.postalCode,
+    addressCountry: 'JP',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:30',
+      closes: '17:30',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '10:30',
+      closes: '17:30',
+    },
+  ],
+  sameAs: [site.lineUrl],
+};
 ---
 
 <!doctype html>
@@ -12,14 +60,34 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content={site.name} />
     <meta name="theme-color" content="#21130e" />
+    <meta name="format-detection" content="telephone=no,email=no,address=no" />
+    <link rel="canonical" href={canonicalURL.href} />
+
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="twitter:card" content="summary" />
-    <title>{title}</title>
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content={ogImageURL.href} />
+    <meta property="og:image:secure_url" content={ogImageURL.href} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content={String(ogImage.attributes.width ?? 1200)} />
+    <meta property="og:image:height" content={String(ogImage.attributes.height ?? 630)} />
+    <meta property="og:image:alt" content={site.name} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL.href} />
+    <meta name="twitter:image:alt" content={site.name} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="site-body">
     <slot />

@@ -1,11 +1,18 @@
 import type { ImageMetadata } from 'astro';
 
 export const site = {
+  /** 本番の公開URL（末尾スラッシュなし）。OGP・canonical に使用 */
+  url: 'https://todaya-momihogushi.pages.dev',
   name: 'もみほぐし専門店 とだ家',
+  nameEn: 'Todaya',
   phoneDisplay: '080-5150-5630',
   phoneHref: 'tel:08051505630',
+  telephone: '+81-80-5150-5630',
   lineUrl: 'https://lin.ee/6is5zgl',
   postalCode: '465-0093',
+  addressRegion: '愛知県',
+  addressLocality: '名古屋市名東区',
+  streetAddress: '一社四丁目30-2 ユーハイツ三和2 407号室',
   address: '名古屋市名東区一社四丁目30-2 ユーハイツ三和2 407号室',
   station: '社駅 徒歩10分',
   weekdayHours: '9:30〜17:30',
