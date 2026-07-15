@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import SectionHeading from './SectionHeading.astro';
+import hero from '../assets/images/hero.png';
+import counseling from '../assets/images/counseling.png';
 ---
 
 <section class="concept section" id="concept" aria-labelledby="concept-title">
@@ -14,10 +17,24 @@ import SectionHeading from './SectionHeading.astro';
       <p class="concept__text">一席の空間に灯るやわらかな明かりの中で、ゆっくりとお過ごしください。</p>
     </div>
     <figure class="concept__photo concept__photo--large js-reveal js-parallax">
-      <img class="concept__image media" src="/images/hero.png" alt="行灯と器が置かれた、とだ家の店内" width="750" height="562" loading="lazy" />
+      <Image
+        class="concept__image media"
+        src={hero}
+        alt="行灯と器が置かれた、とだ家の店内"
+        widths={[480, 750, 1200]}
+        sizes="(max-width: 768px) 100vw, 70vw"
+        format="webp"
+      />
     </figure>
     <figure class="concept__photo concept__photo--small js-reveal">
-      <img class="concept__image media" src="/images/counseling.png" alt="店内でお話をうかがう様子" width="750" height="562" loading="lazy" />
+      <Image
+        class="concept__image media"
+        src={counseling}
+        alt="店内でお話をうかがう様子"
+        widths={[360, 640, 900]}
+        sizes="(max-width: 768px) 70vw, 35vw"
+        format="webp"
+      />
       <figcaption class="concept__caption">COUNSELING</figcaption>
     </figure>
   </div>

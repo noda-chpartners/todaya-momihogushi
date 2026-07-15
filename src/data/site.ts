@@ -1,3 +1,5 @@
+import type { ImageMetadata } from 'astro';
+
 export const site = {
   name: 'もみほぐし専門店 とだ家',
   phoneDisplay: '080-5150-5630',
@@ -20,7 +22,14 @@ export const menuItems = [
   { name: 'もみほぐし60分 + ハンドケア20分', duration: '80分', price: '8,200円' },
 ];
 
-export const treatmentImages = Array.from({ length: 9 }, (_, index) => ({
-  src: `/images/sejutu${String(index + 1).padStart(2, '0')}.png`,
-  alt: `施術の様子 ${index + 1}`,
-}));
+const sejutuModules = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/images/sejutu*.png',
+  { eager: true },
+);
+
+export const treatmentImages = Object.entries(sejutuModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], index) => ({
+    src: mod.default,
+    alt: `施術の様子 ${index + 1}`,
+  }));

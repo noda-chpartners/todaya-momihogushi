@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import SectionHeading from './SectionHeading.astro';
 import { menuItems } from '../data/site';
+import sejutu03 from '../assets/images/sejutu03.png';
 ---
 
 <section class="menu section section--dark" id="menu" aria-labelledby="menu-title">
@@ -12,7 +14,14 @@ import { menuItems } from '../data/site';
       </SectionHeading>
       <p class="menu__note js-reveal">すべてのメニューと料金をご案内します。</p>
       <figure class="menu__photo js-reveal js-parallax">
-        <img class="menu__image media" src="/images/sejutu03.png" alt="肩への施術の様子" width="750" height="562" loading="lazy" />
+        <Image
+          class="menu__image media"
+          src={sejutu03}
+          alt="肩への施術の様子"
+          widths={[360, 640, 900]}
+          sizes="(max-width: 900px) 40vw, 22vw"
+          format="webp"
+        />
       </figure>
     </div>
     <ol class="menu__list">

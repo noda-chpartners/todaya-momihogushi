@@ -841,7 +841,7 @@
   padding: 96px var(--page-gutter);
   text-align: center;
   flex-direction: column;
-  background-image: linear-gradient(rgba(22, 13, 9, 0.72), rgba(22, 13, 9, 0.9)), url('/images/hero03.png');
+  background-image: linear-gradient(rgba(22, 13, 9, 0.72), rgba(22, 13, 9, 0.9)), var(--footer-image);
   background-position: center;
   background-size: cover;
 }

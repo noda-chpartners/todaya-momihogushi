@@ -1,12 +1,22 @@
 ---
+import { Image } from 'astro:assets';
 import SectionHeading from './SectionHeading.astro';
+import staff from '../assets/images/staff.png';
+import sejutu01 from '../assets/images/sejutu01.png';
 ---
 
 <section class="staff section" id="staff" aria-labelledby="staff-title">
   <div class="container staff__grid">
     <div class="staff__portrait-wrap js-reveal">
       <figure class="staff__portrait js-parallax">
-        <img class="staff__image media" src="/images/staff.png" alt="とだ家のスタッフ" width="768" height="1024" loading="lazy" />
+        <Image
+          class="staff__image media"
+          src={staff}
+          alt="とだ家のスタッフ"
+          widths={[400, 640, 960]}
+          sizes="(max-width: 768px) 80vw, 30vw"
+          format="webp"
+        />
       </figure>
       <span class="staff__stamp" aria-hidden="true">とだ家</span>
     </div>
@@ -18,7 +28,14 @@ import SectionHeading from './SectionHeading.astro';
       <p class="staff__signature js-reveal">もみほぐし専門店 とだ家</p>
     </div>
     <figure class="staff__detail js-reveal">
-      <img class="staff__detail-image media" src="/images/sejutu01.png" alt="もみほぐし施術の様子" width="750" height="562" loading="lazy" />
+      <Image
+        class="staff__detail-image media"
+        src={sejutu01}
+        alt="もみほぐし施術の様子"
+        widths={[360, 640, 900]}
+        sizes="(max-width: 768px) 90vw, 28vw"
+        format="webp"
+      />
     </figure>
   </div>
 </section>

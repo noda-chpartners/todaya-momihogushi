@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import SectionHeading from './SectionHeading.astro';
 import { site } from '../data/site';
+import hero01 from '../assets/images/hero01.png';
 ---
 
 <section class="info section section--dark" id="info" aria-labelledby="info-title">
@@ -10,7 +12,14 @@ import { site } from '../data/site';
         店舗情報
       </SectionHeading>
       <figure class="info__photo js-reveal">
-        <img class="info__image media" src="/images/hero01.png" alt="竹と白砂でしつらえた店内" width="750" height="562" loading="lazy" />
+        <Image
+          class="info__image media"
+          src={hero01}
+          alt="竹と白砂でしつらえた店内"
+          widths={[360, 640, 900]}
+          sizes="(max-width: 768px) 90vw, 35vw"
+          format="webp"
+        />
       </figure>
     </div>
     <dl class="info__list js-reveal">

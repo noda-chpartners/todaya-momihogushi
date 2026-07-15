@@ -1,9 +1,13 @@
 ---
+import { getImage } from 'astro:assets';
 import { site } from '../data/site';
+import hero03 from '../assets/images/hero03.png';
+
+const footerBg = await getImage({ src: hero03, width: 1600, format: 'webp' });
 ---
 
 <footer class="footer">
-  <div class="footer__cta">
+  <div class="footer__cta" style={`--footer-image: url(${footerBg.src})`}>
     <p class="footer__eyebrow">CONTACT</p>
     <p class="footer__title">静かな時間を、<br class="footer__break" />とだ家で。</p>
     <div class="footer__actions">
