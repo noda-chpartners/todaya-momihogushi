@@ -9,10 +9,10 @@ import sejutu03 from '../assets/images/sejutu03.png';
   <div class="menu__glow" aria-hidden="true"></div>
   <div class="container menu__layout">
     <div class="menu__aside">
-      <SectionHeading eyebrow="TREATMENT MENU" id="menu-title" light>
+      <SectionHeading eyebrow="メニュー" id="menu-title" light>
         からだに合わせて、<br class="section-heading__break" />選ぶ時間。
       </SectionHeading>
-      <p class="menu__note js-reveal">すべてのメニューと料金をご案内します。</p>
+      <p class="menu__note js-reveal">おすすめのメニューをご案内します。</p>
       <figure class="menu__photo js-reveal js-parallax">
         <Image
           class="menu__image media"
@@ -30,7 +30,7 @@ import sejutu03 from '../assets/images/sejutu03.png';
           <span class="menu-row__index">{String(index + 1).padStart(2, '0')}</span>
           <div class="menu-row__body">
             <h3 class="menu-row__name">{item.name}</h3>
-            <p class="menu-row__duration">{item.duration}</p>
+            {item.duration && <p class="menu-row__duration">{item.duration}</p>}
           </div>
           <p class="menu-row__price">{item.price}</p>
           <span class="menu-row__line" aria-hidden="true"></span>

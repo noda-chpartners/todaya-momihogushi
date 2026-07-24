@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import { site } from '../data/site';
+import sejutu02 from '../assets/images/sejutu02.png';
+---
+
+<section class="reservation section section--dark" id="reservation" aria-labelledby="reservation-title">
+  <div class="container reservation__grid">
+    <figure class="reservation__photo js-reveal js-parallax">
+      <Image
+        class="reservation__image media"
+        src={sejutu02}
+        alt="もみほぐし施術の様子"
+        widths={[360, 640, 900]}
+        sizes="(max-width: 900px) 90vw, 38vw"
+        format="webp"
+      />
+    </figure>
+    <div class="reservation__copy">
+      <SectionHeading eyebrow="ご予約" id="reservation-title" light>
+        ホットペッパーから、<br class="section-heading__break" />ご予約ください。
+      </SectionHeading>
+      <p class="reservation__note js-reveal">空き状況の確認とご予約は、ホットペッパービューティーにて承っております。下記のボタンよりお進みください。</p>
+      <a class="button button--primary reservation__cta js-reveal" href={site.hotpepperUrl} target="_blank" rel="noreferrer">
+        <span class="button__label">ホットペッパー予約</span>
+        <span class="button__arrow" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+</section>

@@ -6,25 +6,21 @@ import hero03 from '../assets/images/hero03.png';
 const footerBg = await getImage({ src: hero03, width: 1600, format: 'webp' });
 ---
 
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer__cta" style={`--footer-image: url(${footerBg.src})`}>
-    <p class="footer__eyebrow">CONTACT</p>
+    <p class="footer__eyebrow">お問い合わせ</p>
     <p class="footer__title">静かな時間を、<br class="footer__break" />とだ家で。</p>
     <div class="footer__actions">
-      <a class="button button--footer" href={site.lineUrl} target="_blank" rel="noreferrer">
-        <span class="button__label">LINEでお問い合わせ</span>
-        <span class="button__arrow" aria-hidden="true"></span>
-      </a>
+      <a class="footer__phone" href={site.lineUrl} target="_blank" rel="noreferrer">LINEで問い合わせ</a>
       <a class="footer__phone" href={site.phoneHref}>{site.phoneDisplay}</a>
     </div>
   </div>
   <div class="footer__bottom">
     <a class="footer__brand" href="#top">もみほぐし専門店　とだ家</a>
-    <p class="footer__copy">© TODAYA</p>
+    <p class="footer__copy">© とだ家</p>
   </div>
 </footer>
 
-<div class="mobile-contact" aria-label="お問い合わせ">
-  <a class="mobile-contact__link mobile-contact__link--phone" href={site.phoneHref}>電話</a>
-  <a class="mobile-contact__link mobile-contact__link--line" href={site.lineUrl} target="_blank" rel="noreferrer">LINEでお問い合わせ</a>
+<div class="mobile-contact" aria-label="ご予約">
+  <a class="mobile-contact__link" href={site.hotpepperUrl} target="_blank" rel="noreferrer">ホットペッパー予約</a>
 </div>
