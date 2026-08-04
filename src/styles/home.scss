@@ -379,12 +379,12 @@ body.nav-open {
   overflow: hidden;
 }
 
-.hero__main-frame::after {
+/*.hero__main-frame::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(33, 19, 14, 0.7), transparent 35%), linear-gradient(0deg, rgba(33, 19, 14, 0.48), transparent 45%);
+  background: linear-gradient(90deg, rgba(185, 184, 184, 0.7), transparent 35%), linear-gradient(0deg, rgba(33, 19, 14, 0.48), transparent 45%);
   content: "";
-}
+}*/
 
 .hero__main-image {
   object-position: center;
